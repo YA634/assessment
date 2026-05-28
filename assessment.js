@@ -13,14 +13,27 @@ assessmentButton.addEventListener(
     }
 
     resultDivision.innerText = '';//毎回空文字列に置き換え
-    const header = document.createElement('h3')
-    header.innerText = '診断結果'
-    resultDivision.appendChild(header)
+
+    const headerDivision = document.createElement('div');
+    headerDivision.setAttribute('class','card-header text-bg-primary');
+    headerDivision.innerText = '診断結果';
+    // const header = document.createElement('h3')
+    // header.innerText = '診断結果'
+    // resultDivision.appendChild(header)
+
+    const bodyDivision = document.createElement('div');
+    bodyDivision.setAttribute('class','card-body');
 
     const paragraph = document.createElement('p');
+    paragraph.setAttribute('class','card-text')
     const result = assessment(userName);
     paragraph.innerText = result;
-    resultDivision.appendChild(paragraph);
+    bodyDivision.appendChild(paragraph);
+
+    resultDivision.setAttribute('class','card')
+
+    resultDivision.appendChild(headerDivision);
+    resultDivision.appendChild(bodyDivision);
 
     postDivision.innerText = '';//postdivisionも
     const anchor = document.createElement('a');
